@@ -1,11 +1,11 @@
 const block = document.querySelector('.container');
 const card = document.querySelector('.card');
 
-const img = document.querySelector('.img');
+const img = document.querySelectorAll('.img');
 const circle = document.querySelector('.circle');
 const title = document.querySelector('h3');
 const text = document.querySelector('p');
-const btns = document.querySelector('.btn-box');
+const btns = document.querySelectorAll('.btn-box');
 const link = document.querySelector('a');
 
 
@@ -30,3 +30,17 @@ block.addEventListener('mouseleave', () => {
     circle.style.transform = `scale(0)`;
     img.style.transform = `rotate(0)`;
 })
+
+
+btns.forEach((box) => {
+    box.addEventListener('click', () => {
+        for (let i = 0; i < box.length; i++) {
+            box[i].classList.remove('active');
+            content[i].classList.remove('active');
+        }
+        box.classList.add('active');
+        const index = box.getAttribute('data-');
+        btns[index].classList.add('active');
+    });
+
+});
